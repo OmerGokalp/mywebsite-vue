@@ -19,7 +19,7 @@ const toggleMenu = () => {
         <div class="hidden md:flex items-center space-x-6">
           <!-- <a href="#home" class="text-gray-700 hover:text-blue-600">Anasayfa</a> -->
           <a href="#projects" class="text-gray-700 hover:text-blue-600">Projeler</a>
-          <a href="#contact" class="text-gray-700 hover:text-blue-600">İletişim</a>
+          <router-link to="/contact" class="text-gray-700 hover:text-blue-600">İletişim</router-link>
         </div>
 
         <!-- Hamburger (mobil) -->
