@@ -22,13 +22,13 @@ const toggleMenu = () => {
           Ömer Gökalp
         </router-link>
 
-        <!-- Menü (desktop) -->
-        <div class="flex justify-center space-x-6">
+        <!-- Menü (sadece desktop) -->
+        <div class="hidden md:flex justify-center space-x-6">
           <router-link to="/cv" class="text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
           <router-link to="/contact" class="text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
         </div>
 
-        <!--(mobil) -->
+        <!-- Menü Düğmesi (mobil) -->
         <div class="absolute top-4 right-4 md:hidden">
           <button @click="toggleMenu" class="text-gray-600 focus:outline-none">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@ const toggleMenu = () => {
     </div>
 
     <!-- Menü (mobil açık hali) -->
-    <div v-if="menuOpen" class="md:hidden px-4 pb-4 space-y-2 text-center">
+    <div v-if="menuOpen" class="md:hidden px-4 pb-4 pt-2 space-y-2 bg-white shadow rounded-b text-center">
       <router-link to="/cv" class="block text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
       <router-link to="/contact" class="block text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
     </div>
