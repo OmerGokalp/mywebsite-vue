@@ -41,7 +41,7 @@
               <h3 class="font-semibold text-gray-900 dark:text-white">Türk Hava Kuvvetleri</h3>
               <p class="text-sm text-gray-600 dark:text-gray-400">Tam Zamanlı</p>
               <p class="text-sm text-gray-600 dark:text-gray-400">Kasım 2024 - Günümüz</p>
-              <p>Türk Hava Kuvvetleri saflarında yedek subay olarak Hava Astsubay MYO'da geleceğin astsubaylarının yetiştirilmesinde görev aldım.</p>
+              <p>Türk Hava Kuvvetleri saflarında yedek subay olarak Hava Astsubay MYO'da geleceğin astsubaylarının yetiştirilmesinde görev alıyorum.</p>
             </div>
             <div>
               <h3 class="font-semibold text-gray-900 dark:text-white">Vera Elektromekanik</h3>
