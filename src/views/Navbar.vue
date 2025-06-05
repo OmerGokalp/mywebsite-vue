@@ -1,4 +1,3 @@
-<!-- Düzenlenmiş Navbar.vue -->
 <script setup>
 import { ref } from 'vue'
 
@@ -10,20 +9,27 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <nav class="bg-white shadow-sm sticky top-0 z-50 border-b">
+  <nav class="bg-gradient-to-br from-indigo-100 via-white to-purple-100 shadow-sm sticky top-0 z-50 border-b">
     <div class="max-w-5xl mx-auto px-4">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
-        <router-link to="/" class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition">Ömer Gökalp</router-link>
+      <!-- Navbar Container -->
+      <div class="flex flex-col md:flex-row md:justify-center md:items-center h-auto md:h-16 space-y-2 md:space-y-0">
+        
+        <!-- Logo (ortalanmış) -->
+        <router-link
+          to="/"
+          class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition text-center md:mr-6"
+        >
+          Ömer Gökalp
+        </router-link>
 
         <!-- Menü (desktop) -->
-        <div class="hidden md:flex space-x-6">
+        <div class="flex justify-center space-x-6">
           <router-link to="/cv" class="text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
           <router-link to="/contact" class="text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
         </div>
 
         <!-- Hamburger (mobil) -->
-        <div class="md:hidden">
+        <div class="absolute top-4 right-4 md:hidden">
           <button @click="toggleMenu" class="text-gray-600 focus:outline-none">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -39,12 +45,9 @@ const toggleMenu = () => {
     </div>
 
     <!-- Menü (mobil açık hali) -->
-    <div v-if="menuOpen" class="md:hidden px-4 pb-4 space-y-2">
+    <div v-if="menuOpen" class="md:hidden px-4 pb-4 space-y-2 text-center">
       <router-link to="/cv" class="block text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
       <router-link to="/contact" class="block text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
     </div>
   </nav>
 </template>
-
-<!-- Diğer sayfaların sade ve şık hale getirilmiş sürümleri sırayla eklenecek: HomeView.vue, CvView.vue, Contact.vue -->
-

@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center overflow-hidden">    
+  <div class="bg-gradient-to-br from-indigo-100 via-white to-purple-100 fixed inset-0 flex items-center justify-center overflow-hidden">    
     <div class="flex flex-col items-center space-y-6">
       <!-- Açıklama Metni -->
       <p class="text-gray-700 text-lg font-medium text-center">
@@ -8,10 +8,13 @@
 
       <!-- Sosyal Medya Butonları -->
       <div class="grid grid-cols-4 gap-4">
-        <button
+        <a
           v-for="button in socialButtons"
           :key="button.id"
           :id="button.id"
+          :href="button.href"
+          target="_blank"
+          rel="noopener noreferrer"
           :class="button.classes"
         >
           <!-- Font Awesome ikonları -->
@@ -26,13 +29,11 @@
           >
             <path :d="button.icon.path" :fill="button.svgColor" />
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   </div>
 </template>
-
-
 
 <script setup>
 import { onMounted } from 'vue'
@@ -44,47 +45,23 @@ import { siLetterboxd } from 'simple-icons/icons'
 import { siGoodreads } from 'simple-icons/icons'
 import { siGmail } from 'simple-icons/icons'
 
+
 // Simple Icons ikonlarını Vue'da kullanılabilir hale getiren yardımcı fonksiyon
 const iconToSvgObject = (iconData) => ({
   path: iconData.path,
   viewBox: '0 0 24 24'
 })
 
+const sharedClasses = 'flex items-center justify-center w-12 h-12 text-2xl rounded-full transform hover:-translate-y-3 duration-500'
+
 const socialButtons = [
-  {
-    id: 'instagram',
-    label: 'Instagram',
-    iconType: 'fa',
-    icon: 'fab fa-instagram',
-    classes: 'bg-white border-2 border-pink-500 w-12 h-12 text-2xl rounded-full text-pink-600 hover:text-white hover:bg-gradient-to-b hover:from-indigo-600 hover:via-pink-600 hover:to-yellow-500 transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'twitter',
-    label: 'Twitter',
-    iconType: 'fa',
-    icon: 'fab fa-twitter',
-    classes: 'bg-white border-2 border-blue-400 w-12 h-12 text-2xl rounded-full text-blue-400 hover:bg-blue-400 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'youtube',
-    label: 'Youtube',
-    iconType: 'fa',
-    icon: 'fab fa-youtube',
-    classes: 'bg-white border-2 border-red-500 w-12 h-12 text-2xl rounded-full text-red-500 hover:bg-red-500 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'github',
-    label: 'Github',
-    iconType: 'fa',
-    icon: 'fab fa-github',
-    classes: 'bg-white border-2 border-gray-800 w-12 h-12 text-2xl rounded-full text-gray-800 hover:bg-gray-800 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
   {
     id: 'linkedin',
     label: 'Linkedin',
     iconType: 'fa',
     icon: 'fab fa-linkedin-in',
-    classes: 'bg-white border-2 border-blue-500 w-12 h-12 text-2xl rounded-full text-blue-500 hover:bg-blue-500 hover:text-white transform hover:-translate-y-3 duration-500'
+    classes: `${sharedClasses} bg-white border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white`,
+    href: 'https://www.linkedin.com/in/omer-gokalp/'
   },
   {
     id: 'gmail',
@@ -92,15 +69,49 @@ const socialButtons = [
     iconType: 'svg',
     icon: iconToSvgObject(siGmail),
     svgColor: '#D14836',
-    classes: 'bg-white border-2 border-red-600 w-12 h-12 text-2xl rounded-full hover:bg-red-600 hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
+    classes: `${sharedClasses} bg-white border-2 border-red-600 hover:bg-red-600 hover:text-white`,
+    href: 'mailto:omergklp382@gmail.com'
+  },  
+  {
+    id: 'github',
+    label: 'Github',
+    iconType: 'fa',
+    icon: 'fab fa-github',
+    classes: `${sharedClasses} bg-white border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white`,
+    href: 'https://github.com/OmerGokalp'
+  }, 
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    iconType: 'fa',
+    icon: 'fab fa-instagram',
+    classes: `${sharedClasses} bg-white border-2 border-pink-500 text-pink-600 hover:text-white hover:bg-gradient-to-b hover:from-indigo-600 hover:via-pink-600 hover:to-yellow-500`,
+    href: 'https://www.instagram.com/omergklp/'
   },
+  {
+    id: 'twitter',
+    label: 'Twitter',
+    iconType: 'fa',
+    icon: 'fab fa-twitter',
+    classes: `${sharedClasses} bg-white border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white`,
+    href: 'https://twitter.com/omergklp'
+  },
+  {
+    id: 'youtube',
+    label: 'Youtube',
+    iconType: 'fa',
+    icon: 'fab fa-youtube',
+    classes: `${sharedClasses} bg-white border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white`,
+    href: 'http://www.youtube.com/@omergklp'
+  },   
   {
     id: 'letterboxd',
     label: 'Letterboxd',
     iconType: 'svg',
     icon: iconToSvgObject(siLetterboxd),
     svgColor: '#181818',
-    classes: 'bg-white border-2 border-black w-12 h-12 text-2xl rounded-full hover:bg-black hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
+    classes: `${sharedClasses} bg-white border-2 border-black hover:bg-black hover:text-white`,
+    href: 'https://letterboxd.com/omergklp/'
   },
   {
     id: 'goodreads',
@@ -108,7 +119,8 @@ const socialButtons = [
     iconType: 'svg',
     icon: iconToSvgObject(siGoodreads),
     svgColor: '#382110',
-    classes: 'bg-white border-2 border-green-600 w-12 h-12 text-2xl rounded-full hover:bg-green-600 hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
+    classes: `${sharedClasses} bg-white border-2 border-green-600 hover:bg-green-600 hover:text-white`,
+    href: 'https://www.goodreads.com/omergklp' // Güncellemen gerekebilir
   }
 ]
 
