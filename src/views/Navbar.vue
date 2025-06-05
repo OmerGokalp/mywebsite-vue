@@ -1,3 +1,4 @@
+<!-- Düzenlenmiş Navbar.vue -->
 <script setup>
 import { ref } from 'vue'
 
@@ -9,21 +10,20 @@ const toggleMenu = () => {
 </script>
 
 <template>
-  <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-center items-center h-16 space-x-8">
+  <nav class="bg-white shadow-sm sticky top-0 z-50 border-b">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
         <!-- Logo -->
-        <router-link to="/" class="text-xl font-bold text-blue-600">ÖMER GÖKALP</router-link>
+        <router-link to="/" class="text-lg font-semibold text-gray-800 hover:text-blue-600 transition">Ömer Gökalp</router-link>
 
         <!-- Menü (desktop) -->
-        <div class="hidden md:flex items-center space-x-6">
-          <router-link to="/" class="text-gray-700 hover:text-blue-600">Anasayfa</router-link>
-          <a href="#projects" class="text-gray-700 hover:text-blue-600">Projeler</a>
-          <router-link to="/contact" class="text-gray-700 hover:text-blue-600">İletişim</router-link>
+        <div class="hidden md:flex space-x-6">
+          <router-link to="/cv" class="text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
+          <router-link to="/contact" class="text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
         </div>
 
         <!-- Hamburger (mobil) -->
-        <div class="md:hidden ml-auto">
+        <div class="md:hidden">
           <button @click="toggleMenu" class="text-gray-600 focus:outline-none">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -39,10 +39,12 @@ const toggleMenu = () => {
     </div>
 
     <!-- Menü (mobil açık hali) -->
-    <div v-if="menuOpen" class="md:hidden px-4 pb-4 flex flex-col items-center space-y-2">
-      <router-link to="/" class="text-gray-700 hover:text-blue-600">Anasayfa</router-link>
-      <a href="#projects" class="text-gray-700 hover:text-blue-600">Projeler</a>
-      <router-link to="/contact" class="text-gray-700 hover:text-blue-600">İletişim</router-link>
+    <div v-if="menuOpen" class="md:hidden px-4 pb-4 space-y-2">
+      <router-link to="/cv" class="block text-gray-600 hover:text-blue-600 transition">Özgeçmiş</router-link>
+      <router-link to="/contact" class="block text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
     </div>
   </nav>
 </template>
+
+<!-- Diğer sayfaların sade ve şık hale getirilmiş sürümleri sırayla eklenecek: HomeView.vue, CvView.vue, Contact.vue -->
+

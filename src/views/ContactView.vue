@@ -1,28 +1,38 @@
 <template>
-  <div class="w-screen h-screen flex items-center justify-center">
-    <div class="grid grid-cols-4 gap-4">
-      <button
-        v-for="button in socialButtons"
-        :key="button.id"
-        :id="button.id"
-        :class="button.classes"
-      >
-        <!-- Font Awesome ikonları -->
-        <i v-if="button.iconType === 'fa'" :class="button.icon"></i>
+  <div class="fixed inset-0 flex items-center justify-center overflow-hidden">    
+    <div class="flex flex-col items-center space-y-6">
+      <!-- Açıklama Metni -->
+      <p class="text-gray-700 text-lg font-medium text-center">
+        Benimle aşağıdaki sosyal medya kanallarıyla iletişime geçebilirsiniz.
+      </p>
 
-        <!-- Simple Icons ikonları (SVG) -->
-        <svg
-          v-else-if="button.iconType === 'svg'"
-          :viewBox="button.icon.viewBox"
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6"
+      <!-- Sosyal Medya Butonları -->
+      <div class="grid grid-cols-4 gap-4">
+        <button
+          v-for="button in socialButtons"
+          :key="button.id"
+          :id="button.id"
+          :class="button.classes"
         >
-          <path :d="button.icon.path" :fill="button.svgColor" />
-        </svg>
-      </button>
+          <!-- Font Awesome ikonları -->
+          <i v-if="button.iconType === 'fa'" :class="button.icon"></i>
+
+          <!-- Simple Icons ikonları (SVG) -->
+          <svg
+            v-else-if="button.iconType === 'svg'"
+            :viewBox="button.icon.viewBox"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6"
+          >
+            <path :d="button.icon.path" :fill="button.svgColor" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </template>
+
+
 
 <script setup>
 import { onMounted } from 'vue'

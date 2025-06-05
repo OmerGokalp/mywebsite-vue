@@ -1,16 +1,13 @@
 <script setup>
 import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { computed } from 'vue';
-import HomeView from './views/HomeView.vue';
 import Navbar from './views/Navbar.vue';
-import ContactView from './views/ContactView.vue';
 </script>
 
 <template>
-  <main>
+  <div>
       <Navbar/>
-      <RouterView/>
-  </main>
- 
-  
+      <RouterView :key="$route.fullPath" />
+
+  </div>  
 </template>
