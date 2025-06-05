@@ -20,7 +20,7 @@ import pp from '../assets/pp.png';
 
       <!-- Açıklama -->
       <p class="text-black dark:text-black text-lg leading-relaxed text-justify">
-        Merhaba, ben Ömer Gökalp. 25 yaşındayım. Front-End alanında kendimi geliştirmeye çalışıyor, HTML, CSS ve JavaScript üzerine yoğunlaşıyorum. Bu kişisel web sitesinde hem öğrendiklerimi uyguluyor hem de projelerimi ve ilgi alanlarımı paylaşıyorum. Aktif olarak Goodreads ve Twitter üzerinden okuduklarımı ve Letterboxd üzerinden de izlediğim filmleri paylaşıyorum. Ayrıca ilginç bulduğum hikayeleri ve mitolojik karakterleri araştırarak anlattığım bir YouTube kanalım var, göz atmayı unutmayın!
+        Merhaba, ben Ömer Gökalp. 27 yaşındayım. Front-End alanında kendimi geliştirmeye çalışıyor, HTML, CSS ve JavaScript üzerine yoğunlaşıyorum. Bu kişisel web sitesinde hem öğrendiklerimi uyguluyor hem de projelerimi ve ilgi alanlarımı paylaşıyorum. Aktif olarak Goodreads ve Twitter üzerinden okuduklarımı ve Letterboxd üzerinden de izlediğim filmleri paylaşıyorum. Ayrıca ilginç bulduğum hikayeleri ve mitolojik karakterleri araştırarak anlattığım bir YouTube kanalım var, göz atmayı unutmayın!
       </p>
     </div>
   </div>
