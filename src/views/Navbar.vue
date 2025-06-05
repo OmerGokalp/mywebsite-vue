@@ -13,11 +13,11 @@ const toggleMenu = () => {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-center items-center h-16 space-x-8">
         <!-- Logo -->
-        <a href="/" class="text-xl font-bold text-blue-600">ÖMER GÖKALP</a>
+        <router-link to="/" class="text-xl font-bold text-blue-600">ÖMER GÖKALP</router-link>
 
         <!-- Menü (desktop) -->
         <div class="hidden md:flex items-center space-x-6">
-          <!-- <a href="#home" class="text-gray-700 hover:text-blue-600">Anasayfa</a> -->
+          <router-link to="/" class="text-gray-700 hover:text-blue-600">Anasayfa</router-link>
           <a href="#projects" class="text-gray-700 hover:text-blue-600">Projeler</a>
           <router-link to="/contact" class="text-gray-700 hover:text-blue-600">İletişim</router-link>
         </div>
@@ -40,9 +40,9 @@ const toggleMenu = () => {
 
     <!-- Menü (mobil açık hali) -->
     <div v-if="menuOpen" class="md:hidden px-4 pb-4 flex flex-col items-center space-y-2">
-      <a href="#home" class="text-gray-700 hover:text-blue-600">Anasayfa</a>
+      <router-link to="/" class="text-gray-700 hover:text-blue-600">Anasayfa</router-link>
       <a href="#projects" class="text-gray-700 hover:text-blue-600">Projeler</a>
-      <a href="#contact" class="text-gray-700 hover:text-blue-600">İletişim</a>
+      <router-link to="/contact" class="text-gray-700 hover:text-blue-600">İletişim</router-link>
     </div>
   </nav>
 </template>

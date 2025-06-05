@@ -3,12 +3,13 @@ import { RouterLink, RouterView, useRoute } from 'vue-router';
 import { computed } from 'vue';
 import HomeView from './views/HomeView.vue';
 import Navbar from './views/Navbar.vue';
+import ContactView from './views/ContactView.vue';
 </script>
 
 <template>
   <main>
       <Navbar/>
-     <RouterView/>
+      <RouterView/>
   </main>
  
   

@@ -7,7 +7,18 @@
         :id="button.id"
         :class="button.classes"
       >
-        <i :class="button.icon"></i>
+        <!-- Font Awesome ikonları -->
+        <i v-if="button.iconType === 'fa'" :class="button.icon"></i>
+
+        <!-- Simple Icons ikonları (SVG) -->
+        <svg
+          v-else-if="button.iconType === 'svg'"
+          :viewBox="button.icon.viewBox"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+        >
+          <path :d="button.icon.path" :fill="button.svgColor" />
+        </svg>
       </button>
     </div>
   </div>
@@ -18,102 +29,76 @@ import { onMounted } from 'vue'
 import tippy from 'tippy.js'
 import 'tippy.js/dist/tippy.css'
 
+// Simple Icons importları
+import { siLetterboxd } from 'simple-icons/icons'
+import { siGoodreads } from 'simple-icons/icons'
+import { siGmail } from 'simple-icons/icons'
+
+// Simple Icons ikonlarını Vue'da kullanılabilir hale getiren yardımcı fonksiyon
+const iconToSvgObject = (iconData) => ({
+  path: iconData.path,
+  viewBox: '0 0 24 24'
+})
+
 const socialButtons = [
-  {
-    id: 'facebook',
-    label: 'Facebook',
-    icon: 'fab fa-facebook-f',
-    classes: 'bg-white border-2 border-blue-600 w-12 h-12 text-2xl rounded-full text-blue-600 hover:bg-blue-600 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
   {
     id: 'instagram',
     label: 'Instagram',
+    iconType: 'fa',
     icon: 'fab fa-instagram',
     classes: 'bg-white border-2 border-pink-500 w-12 h-12 text-2xl rounded-full text-pink-600 hover:text-white hover:bg-gradient-to-b hover:from-indigo-600 hover:via-pink-600 hover:to-yellow-500 transform hover:-translate-y-3 duration-500'
   },
   {
-    id: 'whatsapp',
-    label: 'Whatsapp',
-    icon: 'fab fa-whatsapp',
-    classes: 'bg-white border-2 border-green-600 w-12 h-12 text-2xl rounded-full text-green-500 hover:bg-green-600 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
     id: 'twitter',
     label: 'Twitter',
+    iconType: 'fa',
     icon: 'fab fa-twitter',
     classes: 'bg-white border-2 border-blue-400 w-12 h-12 text-2xl rounded-full text-blue-400 hover:bg-blue-400 hover:text-white transform hover:-translate-y-3 duration-500'
   },
   {
     id: 'youtube',
     label: 'Youtube',
+    iconType: 'fa',
     icon: 'fab fa-youtube',
     classes: 'bg-white border-2 border-red-500 w-12 h-12 text-2xl rounded-full text-red-500 hover:bg-red-500 hover:text-white transform hover:-translate-y-3 duration-500'
   },
   {
-    id: 'snapchat',
-    label: 'Snapchat',
-    icon: 'fab fa-snapchat-ghost',
-    classes: 'bg-white border-2 border-yellow-300 w-12 h-12 text-2xl rounded-full text-yellow-300 hover:bg-yellow-300 hover:text-white transform hover:-translate-y-3 duration-500'
+    id: 'github',
+    label: 'Github',
+    iconType: 'fa',
+    icon: 'fab fa-github',
+    classes: 'bg-white border-2 border-gray-800 w-12 h-12 text-2xl rounded-full text-gray-800 hover:bg-gray-800 hover:text-white transform hover:-translate-y-3 duration-500'
   },
   {
     id: 'linkedin',
     label: 'Linkedin',
+    iconType: 'fa',
     icon: 'fab fa-linkedin-in',
     classes: 'bg-white border-2 border-blue-500 w-12 h-12 text-2xl rounded-full text-blue-500 hover:bg-blue-500 hover:text-white transform hover:-translate-y-3 duration-500'
   },
   {
-    id: 'tiktok',
-    label: 'Tiktok',
-    icon: 'fab fa-tiktok',
-    classes: 'bg-white border-2 border-black w-12 h-12 text-2xl rounded-full text-black hover:bg-black hover:text-white transform hover:-translate-y-3 duration-500'
+    id: 'gmail',
+    label: 'Gmail',
+    iconType: 'svg',
+    icon: iconToSvgObject(siGmail),
+    svgColor: '#D14836',
+    classes: 'bg-white border-2 border-red-600 w-12 h-12 text-2xl rounded-full hover:bg-red-600 hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
   },
   {
-    id: 'telegram',
-    label: 'Telegram',
-    icon: 'fab fa-telegram-plane',
-    classes: 'bg-white border-2 border-blue-400 w-12 h-12 text-2xl rounded-full text-blue-400 hover:bg-blue-400 hover:text-white transform hover:-translate-y-3 duration-500'
+    id: 'letterboxd',
+    label: 'Letterboxd',
+    iconType: 'svg',
+    icon: iconToSvgObject(siLetterboxd),
+    svgColor: '#181818',
+    classes: 'bg-white border-2 border-black w-12 h-12 text-2xl rounded-full hover:bg-black hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
   },
   {
-    id: 'pinterest',
-    label: 'Pinterest',
-    icon: 'fab fa-pinterest-p',
-    classes: 'bg-white border-2 border-red-500 w-12 h-12 text-2xl rounded-full text-red-500 hover:bg-red-500 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'spotify',
-    label: 'Spotify',
-    icon: 'fab fa-spotify',
-    classes: 'bg-white border-2 border-green-500 w-12 h-12 text-2xl rounded-full text-green-500 hover:bg-green-500 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'discord',
-    label: 'Discord',
-    icon: 'fab fa-discord',
-    classes: 'bg-white border-2 border-indigo-500 w-12 h-12 text-2xl rounded-full text-indigo-500 hover:bg-indigo-500 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'reddit',
-    label: 'Reddit',
-    icon: 'fab fa-reddit-alien',
-    classes: 'bg-white border-2 border-yellow-600 w-12 h-12 text-2xl rounded-full text-yellow-600 hover:bg-yellow-600 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'googleplus',
-    label: 'Google +',
-    icon: 'fab fa-google-plus-g',
-    classes: 'bg-white border-2 border-red-500 w-12 h-12 text-2xl rounded-full text-red-500 hover:bg-red-500 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'skype',
-    label: 'Skype',
-    icon: 'fab fa-skype',
-    classes: 'bg-white border-2 border-blue-400 w-12 h-12 text-2xl rounded-full text-blue-400 hover:bg-blue-400 hover:text-white transform hover:-translate-y-3 duration-500'
-  },
-  {
-    id: 'line',
-    label: 'Line',
-    icon: 'fab fa-line',
-    classes: 'bg-white border-2 border-green-400 w-12 h-12 text-2xl rounded-full text-green-400 hover:bg-green-400 hover:text-white transform hover:-translate-y-3 duration-500'
+    id: 'goodreads',
+    label: 'Goodreads',
+    iconType: 'svg',
+    icon: iconToSvgObject(siGoodreads),
+    svgColor: '#382110',
+    classes: 'bg-white border-2 border-green-600 w-12 h-12 text-2xl rounded-full hover:bg-green-600 hover:text-white transform hover:-translate-y-3 duration-500 flex items-center justify-center'
   }
 ]
 
