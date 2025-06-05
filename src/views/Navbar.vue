@@ -28,7 +28,7 @@ const toggleMenu = () => {
           <router-link to="/contact" class="text-gray-600 hover:text-blue-600 transition">İletişim</router-link>
         </div>
 
-        <!-- Hamburger (mobil) -->
+        <!--(mobil) -->
         <div class="absolute top-4 right-4 md:hidden">
           <button @click="toggleMenu" class="text-gray-600 focus:outline-none">
             <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

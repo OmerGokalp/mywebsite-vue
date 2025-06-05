@@ -101,9 +101,7 @@
         </a>
       </div>
       </div>
-    </div>
-        <!-- PDF İndir Butonu -->
-   
+    </div>  
 
   </div>
 </template>

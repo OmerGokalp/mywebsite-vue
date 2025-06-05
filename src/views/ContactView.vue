@@ -120,7 +120,7 @@ const socialButtons = [
     icon: iconToSvgObject(siGoodreads),
     svgColor: '#382110',
     classes: `${sharedClasses} bg-white border-2 border-green-600 hover:bg-green-600 hover:text-white`,
-    href: 'https://www.goodreads.com/omergklp' // Güncellemen gerekebilir
+    href: 'https://www.goodreads.com/omergklp'
   }
 ]
 
